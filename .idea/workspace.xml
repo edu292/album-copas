@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="813fa0c5-3ba1-48c7-a852-19fb5cd5aaa7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/html-prototipos/1958.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html-prototipos/1962.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html-prototipos/1970.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html-prototipos/1994.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html-prototipos/2002.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html-prototipos/img/1958/LEIA-ME.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html-prototipos/img/1962/LEIA-ME.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html-prototipos/img/1970/LEIA-ME.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html-prototipos/img/1994/LEIA-ME.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html-prototipos/img/2002/LEIA-ME.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,61 +21,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.41486169127446" />
-      <entry key="MS500" value="4.154968747806942" />
-      <entry key="S2" value="15.791586427311085" />
-      <entry key="S5" value="32.77850965949996" />
-      <entry key="S10" value="49.2532545777923" />
-      <entry key="S30" value="71.70402296751034" />
-      <entry key="S60" value="84.16427893181442" />
-      <entry key="M2" value="101.02857612714934" />
-      <entry key="M5" value="125.02037795966692" />
-      <entry key="M10" value="138.03061363640523" />
-      <entry key="M15" value="143.1894872212181" />
-      <entry key="M30" value="148.82970708795773" />
-      <entry key="H1" value="151.84535913614067" />
-      <entry key="H2" value="153.40488402779854" />
-      <entry key="H4" value="154.1979392500674" />
-      <entry key="D1" value="154.86569319758613" />
-      <entry key="W1" value="154.9807978244059" />
+      <entry key="MS100" value="1.6338706801205537E-9" />
+      <entry key="MS500" value="0.0586010503944065" />
+      <entry key="S2" value="2.389649211182777" />
+      <entry key="S5" value="8.310527334676074" />
+      <entry key="S10" value="17.44369637766464" />
+      <entry key="S30" value="33.52261768882705" />
+      <entry key="S60" value="40.53059916698368" />
+      <entry key="M2" value="49.11946289453932" />
+      <entry key="M5" value="83.76185963721036" />
+      <entry key="M10" value="122.78574414784137" />
+      <entry key="M15" value="143.48800027769903" />
+      <entry key="M30" value="169.98690636295126" />
+      <entry key="H1" value="185.9278966220167" />
+      <entry key="H2" value="194.67985342477542" />
+      <entry key="H4" value="199.26655694861222" />
+      <entry key="D1" value="203.20069694174163" />
+      <entry key="W1" value="203.88555652923432" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="2.7339702784650498E-160" />
-      <entry key="MS500" value="1.5652470363480276E-32" />
-      <entry key="S2" value="1.8166909175196917E-8" />
-      <entry key="S5" value="0.001210662405240879" />
-      <entry key="S10" value="0.04918267190823963" />
-      <entry key="S30" value="0.6007721160216973" />
-      <entry key="S60" value="1.3536757142606588" />
-      <entry key="M2" value="2.5157890334888178" />
-      <entry key="M5" value="4.106604097515173" />
-      <entry key="M10" value="4.938728112239018" />
-      <entry key="M15" value="5.263988251968606" />
-      <entry key="M30" value="5.616898892119679" />
-      <entry key="H1" value="5.804507841346593" />
-      <entry key="H2" value="5.901246713364969" />
-      <entry key="H4" value="5.950368775340466" />
-      <entry key="D1" value="5.991692532245488" />
-      <entry key="W1" value="5.9988123440027525" />
+      <entry key="MS100" value="1.0000045051294764" />
+      <entry key="MS500" value="1.0852592396799596" />
+      <entry key="S2" value="1.5403627010196757" />
+      <entry key="S5" value="1.781761260493539" />
+      <entry key="S10" value="1.8841726417920537" />
+      <entry key="S30" value="1.959799021804189" />
+      <entry key="S60" value="1.982627815929082" />
+      <entry key="M2" value="2.106956618046146" />
+      <entry key="M5" value="3.2001891546364467" />
+      <entry key="M10" value="4.6724232176546066" />
+      <entry key="M15" value="5.495912227534149" />
+      <entry key="M30" value="6.5776168562292305" />
+      <entry key="H1" value="7.240116141474973" />
+      <entry key="H2" value="7.607024484311167" />
+      <entry key="H4" value="7.800139549313796" />
+      <entry key="D1" value="7.966211463671532" />
+      <entry key="W1" value="7.995161215722759" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.3540427825457786" />
-      <entry key="MS500" value="4.120083451983955" />
-      <entry key="S2" value="15.755942398720773" />
-      <entry key="S5" value="32.746144082276516" />
-      <entry key="S10" value="49.27169111418838" />
-      <entry key="S30" value="72.27943379691314" />
-      <entry key="S60" value="85.49680082552675" />
-      <entry key="M2" value="103.52708328195678" />
-      <entry key="M5" value="129.11630466184747" />
-      <entry key="M10" value="142.96300649827631" />
-      <entry key="M15" value="148.4489912209547" />
-      <entry key="M30" value="154.44422210142326" />
-      <entry key="H1" value="157.6486373022671" />
-      <entry key="H2" value="159.30550616702558" />
-      <entry key="H4" value="160.14799326538778" />
-      <entry key="D1" value="160.8573329230204" />
-      <entry key="W1" value="160.9796026160414" />
+      <entry key="MS100" value="0.02149284639191381" />
+      <entry key="MS500" value="0.542855968989973" />
+      <entry key="S2" value="3.588363861270658" />
+      <entry key="S5" value="9.907736829969341" />
+      <entry key="S10" value="19.222236699694886" />
+      <entry key="S30" value="35.44231336095973" />
+      <entry key="S60" value="42.492243609310144" />
+      <entry key="M2" value="51.21489165563569" />
+      <entry key="M5" value="86.95456238041321" />
+      <entry key="M10" value="127.45254757863194" />
+      <entry key="M15" value="148.9794713166276" />
+      <entry key="M30" value="176.56184786082557" />
+      <entry key="H1" value="193.166536118346" />
+      <entry key="H2" value="202.28610114338915" />
+      <entry key="H4" value="207.0662980030408" />
+      <entry key="D1" value="211.16684054068637" />
+      <entry key="W1" value="211.8807080139195" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -92,31 +83,35 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3LxuH9VWGXnyl1CFjnnWW6fbLuE" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/album-copas/html-prototipos",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/album-copas/templates/core&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;python.packages.toolwindow.project.migrated.to.right.top.v2&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\album-copas\templates\core" />
       <recent name="C:\album-copas\html-prototipos" />
     </key>
   </component>
@@ -163,7 +158,8 @@
       <option name="presentableId" value="Default" />
       <updated>1794407949467</updated>
       <workItem from="1794407950469" duration="747000" />
-      <workItem from="1794417036054" duration="671000" />
+      <workItem from="1794417036054" duration="989000" />
+      <workItem from="1794423129525" duration="645000" />
     </task>
     <servers />
   </component>
