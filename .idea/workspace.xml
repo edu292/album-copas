@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="813fa0c5-3ba1-48c7-a852-19fb5cd5aaa7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/html-prototipos/1958.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html-prototipos/1962.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html-prototipos/1970.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html-prototipos/1994.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html-prototipos/2002.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html-prototipos/img/1958/LEIA-ME.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html-prototipos/img/1962/LEIA-ME.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html-prototipos/img/1970/LEIA-ME.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html-prototipos/img/1994/LEIA-ME.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/html-prototipos/img/2002/LEIA-ME.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.41486169127446" />
+      <entry key="MS500" value="4.154968747806942" />
+      <entry key="S2" value="15.791586427311085" />
+      <entry key="S5" value="32.77850965949996" />
+      <entry key="S10" value="49.2532545777923" />
+      <entry key="S30" value="71.70402296751034" />
+      <entry key="S60" value="84.16427893181442" />
+      <entry key="M2" value="101.02857612714934" />
+      <entry key="M5" value="125.02037795966692" />
+      <entry key="M10" value="138.03061363640523" />
+      <entry key="M15" value="143.1894872212181" />
+      <entry key="M30" value="148.82970708795773" />
+      <entry key="H1" value="151.84535913614067" />
+      <entry key="H2" value="153.40488402779854" />
+      <entry key="H4" value="154.1979392500674" />
+      <entry key="D1" value="154.86569319758613" />
+      <entry key="W1" value="154.9807978244059" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="2.7339702784650498E-160" />
+      <entry key="MS500" value="1.5652470363480276E-32" />
+      <entry key="S2" value="1.8166909175196917E-8" />
+      <entry key="S5" value="0.001210662405240879" />
+      <entry key="S10" value="0.04918267190823963" />
+      <entry key="S30" value="0.6007721160216973" />
+      <entry key="S60" value="1.3536757142606588" />
+      <entry key="M2" value="2.5157890334888178" />
+      <entry key="M5" value="4.106604097515173" />
+      <entry key="M10" value="4.938728112239018" />
+      <entry key="M15" value="5.263988251968606" />
+      <entry key="M30" value="5.616898892119679" />
+      <entry key="H1" value="5.804507841346593" />
+      <entry key="H2" value="5.901246713364969" />
+      <entry key="H4" value="5.950368775340466" />
+      <entry key="D1" value="5.991692532245488" />
+      <entry key="W1" value="5.9988123440027525" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.3540427825457786" />
+      <entry key="MS500" value="4.120083451983955" />
+      <entry key="S2" value="15.755942398720773" />
+      <entry key="S5" value="32.746144082276516" />
+      <entry key="S10" value="49.27169111418838" />
+      <entry key="S30" value="72.27943379691314" />
+      <entry key="S60" value="85.49680082552675" />
+      <entry key="M2" value="103.52708328195678" />
+      <entry key="M5" value="129.11630466184747" />
+      <entry key="M10" value="142.96300649827631" />
+      <entry key="M15" value="148.4489912209547" />
+      <entry key="M30" value="154.44422210142326" />
+      <entry key="H1" value="157.6486373022671" />
+      <entry key="H2" value="159.30550616702558" />
+      <entry key="H4" value="160.14799326538778" />
+      <entry key="D1" value="160.8573329230204" />
+      <entry key="W1" value="160.9796026160414" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3LxuH9VWGXnyl1CFjnnWW6fbLuE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/album-copas/html-prototipos",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "python.packages.toolwindow.project.migrated.to.right.top.v2": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\album-copas\html-prototipos" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="album-copas" type="Python.DjangoServer" factoryName="Django server">
+      <module name="album-copas" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <option name="RUN_TOOL" value="" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-eff1e8def5f5-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.10315.174" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="813fa0c5-3ba1-48c7-a852-19fb5cd5aaa7" name="Changes" comment="" />
+      <created>1794407949467</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1794407949467</updated>
+      <workItem from="1794407950469" duration="747000" />
+      <workItem from="1794417036054" duration="671000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

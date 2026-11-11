@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Álbum do Penta · Brasil 1970</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#009739; --green-d:#00662a; --green-dd:#022e15;
+  --yellow:#FEDD00; --yellow-d:#e2b800;
+  --blue:#012169; --blue-l:#1d43a8;
+  --paper:#fbf7ea; --paper-2:#f0e8cd;
+  --ink:#13201a; --muted:#6b7166;
+  --slot:#e9e2c8; --slot-line:#c7bb92; --slot-ink:#9a8f6c;
+  --shadow:0 30px 70px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+body{
+  font-family:'Barlow',system-ui,sans-serif;color:var(--ink);min-height:100vh;padding-bottom:56px;
+  background:
+    radial-gradient(1200px 500px at 15% -10%, rgba(254,221,0,.16), transparent 60%),
+    radial-gradient(900px 500px at 100% 110%, rgba(1,33,105,.45), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,.03) 0 16px, transparent 16px 32px),
+    var(--green-dd);
+}
+
+/* ---------- Top bar ---------- */
+.topbar{position:sticky;top:0;z-index:30;background:linear-gradient(180deg,#00742f,#014a20);border-bottom:4px solid var(--yellow);box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.topbar-inner{max-width:1340px;margin:0 auto;padding:12px 28px;display:flex;align-items:center;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;flex-shrink:0}
+.brand-mark{width:44px;height:50px;filter:drop-shadow(0 2px 0 rgba(0,0,0,.25))}
+.brand-name{font-family:'Anton',sans-serif;font-size:25px;letter-spacing:.03em;line-height:1}
+.brand-sub{display:block;font-family:'Barlow Condensed';font-weight:700;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--yellow);margin-top:3px}
+.editions{display:flex;gap:6px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.editions a{font-family:'Anton';font-size:17px;letter-spacing:.03em;color:#fff;text-decoration:none;padding:7px 15px 8px;border-radius:999px;border:2px solid rgba(255,255,255,.2);white-space:nowrap;transition:.15s}
+.editions a:hover{border-color:var(--yellow);color:var(--yellow)}
+.editions a.active{background:var(--yellow);border-color:var(--yellow);color:var(--green-dd)}
+.progress{display:flex;align-items:center;gap:10px;color:#fff;flex-shrink:0}
+.progress-label{font-family:'Barlow Condensed';font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.progress-count{font-family:'Anton';font-size:20px}
+.progress-bar{width:110px;height:8px;border-radius:99px;background:rgba(255,255,255,.18);overflow:hidden}
+.progress-bar i{display:block;height:100%;width:0;background:var(--yellow);border-radius:99px;transition:width .5s cubic-bezier(.2,.8,.2,1)}
+
+/* ---------- Album spread ---------- */
+.stage{max-width:1340px;margin:34px auto 0;padding:0 28px}
+.page-tabs{display:none}
+.album{position:relative;display:grid;grid-template-columns:1fr 1fr;border-radius:16px;box-shadow:var(--shadow),0 0 0 12px #0a3a1c,0 0 0 14px #0f5229}
+.album::after{content:"";position:absolute;top:0;bottom:0;left:50%;width:70px;transform:translateX(-50%);pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(0,0,0,.10) 38%,rgba(0,0,0,.28) 50%,rgba(0,0,0,.10) 62%,transparent)}
+.page{position:relative;overflow:hidden;padding:30px 34px 24px;display:flex;flex-direction:column;gap:20px;
+  background:
+    radial-gradient(rgba(0,151,57,.07) 1.2px, transparent 1.3px) 0 0/14px 14px,
+    linear-gradient(180deg,var(--paper),var(--paper-2));
+}
+.page--left{border-radius:16px 0 0 16px}
+.page--right{border-radius:0 16px 16px 0}
+.page::before{ /* faixa verde/amarela no topo */
+  content:"";position:absolute;inset:0 0 auto 0;height:10px;
+  background:repeating-linear-gradient(-45deg,var(--green) 0 18px,var(--yellow) 18px 36px);
+}
+.watermark{position:absolute;font-family:'Anton';font-size:290px;line-height:.8;color:var(--green);opacity:.055;pointer-events:none;user-select:none;letter-spacing:-.02em}
+.page--left .watermark{left:-14px;bottom:-26px}
+.page--right .watermark{right:-14px;bottom:-26px}
+.page > *:not(.watermark){position:relative}
+
+/* Header (left) */
+.ed-head{display:flex;align-items:center;gap:18px;margin-top:6px}
+.crest{width:66px;height:76px;flex-shrink:0;filter:drop-shadow(0 3px 0 rgba(0,0,0,.15))}
+.ed-kicker{font-family:'Barlow Condensed';font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--green-d)}
+.ed-title{font-family:'Anton';font-weight:400;font-size:52px;line-height:.95;letter-spacing:.01em;color:var(--blue);text-transform:uppercase}
+.ed-title span{color:var(--green)}
+.ed-stars{margin-left:auto;display:flex;gap:3px;align-self:flex-start;margin-top:4px}
+.ed-stars svg{width:22px;height:22px}
+.ed-stars svg.dim{opacity:.18}
+.ed-tag{display:inline-block;margin-top:6px;font-family:'Barlow Condensed';font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;background:var(--blue);color:var(--yellow);padding:3px 10px 2px;border-radius:4px;transform:skew(-8deg)}
+
+/* Header (right) */
+.sec-head{display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline;justify-content:space-between;margin-top:6px;border-bottom:3px solid var(--green);padding-bottom:8px}
+.sec-head h2{white-space:nowrap;font-family:'Anton';font-weight:400;font-size:30px;text-transform:uppercase;color:var(--blue);letter-spacing:.01em}
+.sec-head p{white-space:nowrap;font-family:'Barlow Condensed';font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+.row-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 16px}
+
+.page-foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-family:'Barlow Condensed';font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.page-foot b{font-family:'Anton';font-weight:400;font-size:18px;letter-spacing:.02em;color:var(--green-d)}
+
+/* ---------- Sticker ---------- */
+.sticker{position:relative;display:block;width:100%;aspect-ratio:3/4;border-radius:8px;text-align:center;outline:none;-webkit-tap-highlight-color:transparent}
+.sticker--squad{aspect-ratio:16/10}
+.sticker:focus-visible{box-shadow:0 0 0 3px var(--blue)}
+
+/* empty slot */
+.slot{position:absolute;inset:0;border-radius:8px;background:var(--slot);
+  box-shadow:inset 0 2px 6px rgba(0,0,0,.12);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px;color:var(--slot-ink);transition:transform .15s, background .15s}
+.slot::before{content:"";position:absolute;inset:6px;border:2px dashed var(--slot-line);border-radius:5px}
+.sticker:hover .slot{background:#efe8cf;transform:translateY(-2px)}
+.slot-num{font-family:'Anton';font-size:15px;letter-spacing:.06em;color:var(--slot-ink)}
+.slot .ico{width:46%;max-width:92px;height:auto;color:#bdb18a}
+.sticker--squad .slot .ico{width:24%;max-width:130px}
+.slot-name{font-family:'Barlow Condensed';font-weight:800;font-size:15px;line-height:1.05;text-transform:uppercase;color:#7c7253;letter-spacing:.02em}
+.slot-pos{font-family:'Barlow Condensed';font-weight:600;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--slot-ink)}
+
+/* filled card */
+.card{position:absolute;inset:0;border-radius:8px;overflow:hidden;display:none;background:#fff;padding:5px;
+  box-shadow:0 1px 0 rgba(0,0,0,.1),0 8px 16px -4px rgba(0,0,0,.35);transform:rotate(var(--tilt,0deg))}
+.sticker.is-filled .card{display:block}
+.sticker.is-filled .slot{visibility:hidden}
+.sticker.just-filled .card{animation:stick .55s cubic-bezier(.2,1.4,.4,1)}
+@keyframes stick{0%{transform:scale(1.35) rotate(-8deg);opacity:0;box-shadow:0 40px 50px rgba(0,0,0,.3)}60%{opacity:1}100%{transform:scale(1) rotate(var(--tilt,0deg))}}
+.card-inner{display:block;position:relative;width:100%;height:100%;border-radius:5px;overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255,255,255,.35), transparent 55%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,.06) 0 6px, transparent 6px 12px),
+    linear-gradient(160deg,#16b452 0%,var(--green) 45%,#006b2b 100%)}
+.card-photo{position:absolute;inset:0 0 26% 0;display:flex;align-items:flex-end;justify-content:center}
+.sticker--squad .card-photo{inset:0 0 17% 0}
+.card-photo .ico-fill{width:78%;height:auto}
+.sticker--squad .card-photo .ico-fill{width:52%}
+.card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card-band{position:absolute;left:0;right:0;bottom:0;height:26%;background:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0 6px;border-top:4px solid var(--yellow)}
+.sticker--squad .card-band{height:17%;flex-direction:row;gap:10px}
+.card-band strong{font-family:'Barlow Condensed';font-weight:800;font-size:16px;line-height:1;text-transform:uppercase;color:var(--blue);letter-spacing:.01em}
+.card-band em{font-style:normal;font-family:'Barlow Condensed';font-weight:600;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--green-d);margin-top:2px}
+.card-num{position:absolute;top:6px;left:6px;font-family:'Anton';font-size:12px;letter-spacing:.06em;color:var(--green-dd);background:var(--yellow);padding:2px 6px 1px;border-radius:3px}
+.card-flag{position:absolute;top:6px;right:6px;width:22px;height:15px;border-radius:2px;background:var(--green);overflow:hidden;box-shadow:0 0 0 1.5px #fff}
+.card-flag::before{content:"";position:absolute;inset:2px 3px;background:var(--yellow);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%)}
+.card-flag::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--blue)}
+.card-cap{position:absolute;top:28px;right:6px;width:20px;height:20px;border-radius:50%;background:var(--blue);color:var(--yellow);font-family:'Anton';font-size:11px;display:grid;place-items:center;box-shadow:0 0 0 1.5px #fff}
+.card::after{ /* brilho */
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:8px;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.45) 45%,transparent 58%);background-size:250% 100%;background-position:100% 0;transition:background-position .7s}
+.sticker:hover .card::after{background-position:-40% 0}
+.qty{position:absolute;z-index:3;top:-9px;right:-9px;min-width:28px;height:28px;padding:0 7px;border-radius:99px;background:var(--blue);color:#fff;font-family:'Anton';font-size:14px;display:none;align-items:center;justify-content:center;box-shadow:0 0 0 3px var(--paper),0 4px 8px rgba(0,0,0,.25)}
+.sticker.has-dupes .qty{display:flex}
+
+/* info tile (right page) */
+.info-tile{border-radius:8px;background:var(--blue);color:#fff;padding:14px 14px 12px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;aspect-ratio:3/4}
+.info-tile::before{content:"";position:absolute;right:-30%;top:-20%;width:90%;aspect-ratio:1;border-radius:50%;border:16px solid rgba(254,221,0,.14)}
+.info-tile small{font-family:'Barlow Condensed';font-weight:700;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--yellow)}
+.score{font-family:'Anton';font-size:42px;line-height:1;margin:6px 0 2px;letter-spacing:.01em}
+.score-teams{font-family:'Barlow Condensed';font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;line-height:1.15}
+.score-note{font-family:'Barlow Condensed';font-weight:600;font-size:12.5px;color:var(--yellow);margin-top:2px}
+.info-meta{font-size:12px;line-height:1.35;opacity:.88;border-top:1px solid rgba(255,255,255,.2);padding-top:8px}
+.info-meta b{display:block;font-family:'Barlow Condensed';font-weight:700;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);opacity:1}
+
+/* ---------- Modal ---------- */
+.modal{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px}
+.modal[hidden]{display:none}
+.modal-backdrop{position:absolute;inset:0;background:rgba(2,20,10,.72);backdrop-filter:blur(4px);animation:fade .2s}
+.modal-card{position:relative;width:min(760px,100%);max-height:calc(100vh - 40px);overflow:auto;background:var(--paper);border-radius:16px;box-shadow:0 40px 80px rgba(0,0,0,.5);animation:pop .28s cubic-bezier(.2,1.2,.4,1)}
+@keyframes fade{from{opacity:0}}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}}
+.m-head{display:flex;align-items:center;gap:14px;padding:20px 22px 16px;border-bottom:3px solid var(--green);position:relative}
+.m-head::before{content:"";position:absolute;inset:0 0 auto 0;height:8px;border-radius:16px 16px 0 0;background:repeating-linear-gradient(-45deg,var(--green) 0 14px,var(--yellow) 14px 28px)}
+.m-num{font-family:'Anton';font-size:15px;letter-spacing:.06em;background:var(--yellow);color:var(--green-dd);padding:5px 10px 4px;border-radius:5px;margin-top:6px}
+.m-head h2{font-family:'Anton';font-weight:400;font-size:32px;line-height:1;text-transform:uppercase;color:var(--blue);margin-top:6px}
+.m-pos{font-family:'Barlow Condensed';font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--green-d);margin-top:3px}
+.m-close{margin-left:auto;margin-top:6px;width:38px;height:38px;border-radius:50%;font-size:24px;line-height:1;color:var(--muted);display:grid;place-items:center}
+.m-close:hover{background:var(--slot);color:var(--ink)}
+.m-body{display:grid;grid-template-columns:220px 1fr;gap:22px;padding:22px}
+.m-body.is-squad{grid-template-columns:1fr}
+.m-photo{width:100%}
+.m-photo .sticker{cursor:default;pointer-events:none}
+.m-field{display:flex;flex-direction:column;gap:8px}
+.m-field label{font-family:'Barlow Condensed';font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.m-field textarea{flex:1;min-height:160px;resize:vertical;font:inherit;font-size:15px;line-height:1.5;color:var(--ink);background:#fff;border:2px solid var(--slot-line);border-radius:10px;padding:12px 14px;outline:none;transition:border-color .15s, box-shadow .15s}
+.m-field textarea:focus{border-color:var(--green);box-shadow:0 0 0 4px rgba(0,151,57,.15)}
+.m-hint{font-size:12.5px;color:var(--muted)}
+.m-toolbar{display:flex;align-items:center;gap:14px;padding:16px 22px 20px;background:var(--paper-2);border-top:1px solid var(--slot-line);border-radius:0 0 16px 16px}
+.m-have{font-size:14px;color:var(--muted);margin-right:auto}
+.m-have b{font-family:'Anton';font-weight:400;font-size:20px;color:var(--blue);margin:0 2px}
+.stepper{display:flex;align-items:center;background:#fff;border:2px solid var(--slot-line);border-radius:999px;overflow:hidden}
+.stepper button{width:42px;height:42px;font-size:22px;font-weight:600;color:var(--green-d)}
+.stepper button:hover{background:var(--slot)}
+.stepper button:disabled{opacity:.3;cursor:default;background:none}
+.stepper output{min-width:38px;text-align:center;font-family:'Anton';font-size:20px;color:var(--ink)}
+.btn-add{height:46px;padding:0 24px;border-radius:999px;background:var(--yellow);color:var(--green-dd);font-family:'Barlow Condensed';font-weight:800;font-size:17px;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 4px 0 var(--yellow-d);transition:transform .1s, box-shadow .1s;display:flex;align-items:center;gap:8px}
+.btn-add:hover{filter:brightness(1.04)}
+.btn-add:active{transform:translateY(3px);box-shadow:0 1px 0 var(--yellow-d)}
+.btn-add svg{width:18px;height:18px}
+
+.toast{position:fixed;left:50%;bottom:26px;z-index:60;transform:translate(-50%,30px);opacity:0;pointer-events:none;background:var(--blue);color:#fff;padding:12px 20px;border-radius:999px;font-weight:600;font-size:14.5px;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:.3s cubic-bezier(.2,1,.3,1);border:2px solid var(--yellow)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1100px){
+  .progress-bar{display:none}
+  .ed-title{font-size:44px}
+}
+@media (max-width:880px){
+  .topbar-inner{flex-wrap:wrap;gap:10px 16px;padding:10px 16px}
+  .editions{order:3;width:100%;margin-left:0}
+  .progress{margin-left:auto}
+  .stage{padding:0 14px;margin-top:18px}
+  .page-tabs{display:flex;gap:6px;justify-content:center;margin-bottom:14px}
+  .page-tabs button{font-family:'Barlow Condensed';font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:8px 16px;border-radius:999px;border:2px solid rgba(255,255,255,.25)}
+  .page-tabs button[aria-selected="true"]{background:#fff;color:var(--green-dd);border-color:#fff}
+  .album{grid-template-columns:1fr;box-shadow:var(--shadow),0 0 0 8px #0a3a1c}
+  .album::after{display:none}
+  .page{border-radius:14px!important;padding:24px 18px 18px;display:none}
+  .page.is-active{display:flex}
+  .ed-title{font-size:38px}
+  .crest{width:52px;height:60px}
+  .ed-head{flex-wrap:wrap;gap:12px 14px}
+  .ed-head > div:not(.ed-stars){flex:1;min-width:0}
+  .ed-stars{order:3;width:100%;margin:0}
+  .ed-stars svg{width:18px;height:18px}
+  .row-3,.grid-3{gap:12px}
+  .slot-name,.card-band strong{font-size:13px}
+  .m-body{grid-template-columns:1fr}
+  .m-photo:not(.is-squad){max-width:200px;margin:0 auto}
+  .m-toolbar{flex-wrap:wrap}
+  .m-have{width:100%}
+  .btn-add{flex:1;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="1958.html" aria-label="Álbum do Penta">
+      <svg class="brand-mark" viewBox="0 0 44 50" aria-hidden="true">
+        <path d="M22 1 42 7v17c0 13-9 21-20 25C11 45 2 37 2 24V7Z" fill="#FEDD00" stroke="#fff" stroke-width="2"/>
+        <path d="M22 6 37 10.5V24c0 10-6.6 16.3-15 19.6C13.6 40.3 7 34 7 24V10.5Z" fill="#012169"/>
+        <text x="22" y="34" text-anchor="middle" font-family="Anton" font-size="22" fill="#FEDD00">5</text>
+        <g fill="#fff"><circle cx="13" cy="15" r="1.6"/><circle cx="17.5" cy="13.2" r="1.6"/><circle cx="22" cy="12.5" r="1.6"/><circle cx="26.5" cy="13.2" r="1.6"/><circle cx="31" cy="15" r="1.6"/></g>
+      </svg>
+      <span><span class="brand-name">ÁLBUM DO PENTA</span><span class="brand-sub">Brasil campeão do mundo</span></span>
+    </a>
+    <nav class="editions" aria-label="Edições"><a href="1958.html">1958</a><a href="1962.html">1962</a><a href="1970.html" class="active" aria-current="page">1970</a><a href="1994.html">1994</a><a href="2002.html">2002</a></nav>
+    <div class="progress" aria-live="polite">
+      <span class="progress-label">Coladas</span>
+      <span class="progress-count" id="progressCount">0/12</span>
+      <span class="progress-bar"><i id="progressBar"></i></span>
+    </div>
+  </div>
+</header>
+
+<main class="stage">
+  <div class="page-tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-page="left">Página 1 · Seleção</button>
+    <button role="tab" aria-selected="false" data-page="right">Página 2 · Titulares</button>
+  </div>
+
+  <div class="album">
+    <!-- PÁGINA ESQUERDA: cabeçalho + foto do esquadrão + 3 jogadores -->
+    <section class="page page--left is-active" data-page="left">
+      <span class="watermark" aria-hidden="true">’70</span>
+      <header class="ed-head">
+        <svg class="crest" viewBox="0 0 66 76" aria-hidden="true">
+          <path d="M33 2 63 10v26c0 20-14 32-30 38C17 68 3 56 3 36V10Z" fill="#FEDD00" stroke="#012169" stroke-width="3"/>
+          <path d="M33 9 56 15v21c0 15-10 24-23 29C20 60 10 51 10 36V15Z" fill="#009739"/>
+          <text x="33" y="38" text-anchor="middle" font-family="Anton" font-size="17" fill="#FEDD00" letter-spacing="1">BRA</text>
+          <text x="33" y="54" text-anchor="middle" font-family="Anton" font-size="12" fill="#fff">1970</text>
+        </svg>
+        <div>
+          <p class="ed-kicker">Copa do Mundo · México</p>
+          <h1 class="ed-title">Brasil <span>1970</span></h1>
+          <span class="ed-tag">Tricampeão</span>
+        </div>
+        <div class="ed-stars" aria-label="3 estrela(s)"><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z" fill="#FEDD00" stroke="#012169" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z" fill="#FEDD00" stroke="#012169" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z" fill="#FEDD00" stroke="#012169" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" class="dim"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z" fill="#FEDD00" stroke="#012169" stroke-width="1.4" stroke-linejoin="round"/></svg><svg viewBox="0 0 24 24" class="dim"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z" fill="#FEDD00" stroke="#012169" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+      </header>
+
+      <div id="squadSlot"></div>
+      <div class="row-3" id="leftGrid"></div>
+
+      <footer class="page-foot"><span>Técnico: Zagallo</span><b>06</b></footer>
+    </section>
+
+    <!-- PÁGINA DIREITA: 8 jogadores + ficha da final -->
+    <section class="page page--right" data-page="right">
+      <span class="watermark" aria-hidden="true">’70</span>
+      <header class="sec-head">
+        <h2>Os titulares da final</h2>
+        <p>Final · 21 de junho de 1970</p>
+      </header>
+      <div class="grid-3" id="rightGrid"></div>
+      <footer class="page-foot"><b>07</b><span>Álbum do Penta · Brasil 1970</span></footer>
+    </section>
+  </div>
+</main>
+
+<!-- MODAL -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="mName">
+    <header class="m-head">
+      <span class="m-num" id="mNum">BRA 1</span>
+      <div>
+        <h2 id="mName">Jogador</h2>
+        <p class="m-pos" id="mPos">Posição</p>
+      </div>
+      <button class="m-close" data-close aria-label="Fechar">×</button>
+    </header>
+    <div class="m-body" id="mBody">
+      <figure class="m-photo" id="mPhoto"></figure>
+      <div class="m-field">
+        <label for="mNote">Anotações</label>
+        <textarea id="mNote" placeholder="Escreva algo sobre esta figurinha: lembranças do jogador, com quem você trocou, onde achou…"></textarea>
+        <p class="m-hint">Salvo automaticamente neste navegador.</p>
+      </div>
+    </div>
+    <footer class="m-toolbar">
+      <p class="m-have">Você tem <b id="mHave">0</b> <span id="mHaveLabel">figurinhas</span></p>
+      <div class="stepper" aria-label="Quantidade a adicionar">
+        <button type="button" id="stepMinus" aria-label="Diminuir">−</button>
+        <output id="stepValue">1</output>
+        <button type="button" id="stepPlus" aria-label="Aumentar">+</button>
+      </div>
+      <button class="btn-add" id="btnAdd" type="button">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v14M3 10h14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+        <span id="btnAddLabel">Adicionar jogador</span>
+      </button>
+    </footer>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* =========================================================
+   DADOS DA EDIÇÃO
+   - `img` é o caminho da foto real de cada figurinha.
+     Enquanto o arquivo não existir, a figurinha colada mostra
+     o ícone preenchido como placeholder.
+   ========================================================= */
+const EDITION = {
+  "year": 1970,
+  "squadImg": "img/1970/01-esquadrao.jpg",
+  "final": {
+    "score": "4 × 1",
+    "opponent": "Itália",
+    "stadium": "Estadio Azteca, Cidade do México",
+    "note": ""
+  },
+  "players": [
+    {
+      "name": "Félix",
+      "pos": "Goleiro",
+      "img": "img/1970/02-felix.jpg"
+    },
+    {
+      "name": "Carlos Alberto",
+      "pos": "Lateral",
+      "img": "img/1970/03-carlos-alberto.jpg",
+      "captain": true
+    },
+    {
+      "name": "Brito",
+      "pos": "Zagueiro",
+      "img": "img/1970/04-brito.jpg"
+    },
+    {
+      "name": "Piazza",
+      "pos": "Zagueiro",
+      "img": "img/1970/05-piazza.jpg"
+    },
+    {
+      "name": "Everaldo",
+      "pos": "Lateral",
+      "img": "img/1970/06-everaldo.jpg"
+    },
+    {
+      "name": "Clodoaldo",
+      "pos": "Volante",
+      "img": "img/1970/07-clodoaldo.jpg"
+    },
+    {
+      "name": "Gérson",
+      "pos": "Meio-campo",
+      "img": "img/1970/08-gerson.jpg"
+    },
+    {
+      "name": "Jairzinho",
+      "pos": "Ponta",
+      "img": "img/1970/09-jairzinho.jpg"
+    },
+    {
+      "name": "Tostão",
+      "pos": "Atacante",
+      "img": "img/1970/10-tostao.jpg"
+    },
+    {
+      "name": "Pelé",
+      "pos": "Atacante",
+      "img": "img/1970/11-pele.jpg"
+    },
+    {
+      "name": "Rivellino",
+      "pos": "Meio-campo",
+      "img": "img/1970/12-rivellino.jpg"
+    }
+  ]
+};
+
+/* ---------- Ícones ---------- */
+const ICON_PLAYER_EMPTY = `<svg class="ico" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="21" r="11" fill="none" stroke="currentColor" stroke-width="2.6"/><path d="M9 60c1.5-13 10.5-21 23-21s21.5 8 23 21" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>`;
+const ICON_SQUAD_EMPTY = `<svg class="ico" viewBox="0 0 120 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="60" cy="20" r="10"/><path d="M40 60c1-12 9-19 20-19s19 7 20 19"/><circle cx="28" cy="25" r="8"/><path d="M12 60c1-10 7-16 16-16 4 0 7 1 10 3"/><circle cx="92" cy="25" r="8"/><path d="M108 60c-1-10-7-16-16-16-4 0-7 1-10 3"/></svg>`;
+const ICON_PLAYER_FILLED = `<svg class="ico-fill" viewBox="0 0 64 64" aria-hidden="true"><path d="M6 64c1.5-15 11-24 26-24s24.5 9 26 24Z" fill="#FEDD00"/><path d="M6 64c.6-6 2.4-11 5.4-14.6L18 64Z M58 64c-.6-6-2.4-11-5.4-14.6L46 64Z" fill="#e2b800"/><path d="M25 40.6 32 49l7-8.4" fill="none" stroke="#009739" stroke-width="3.4" stroke-linejoin="round"/><rect x="27.5" y="31" width="9" height="10" rx="3" fill="#6b4630"/><circle cx="32" cy="21" r="12" fill="#7a5137"/><path d="M20.3 19c.6-7 5.6-11 11.7-11s11.1 4 11.7 11c-3-2.6-7-3.6-11.7-3.6S23.3 16.4 20.3 19Z" fill="#2a1a12"/></svg>`;
+const ICON_SQUAD_FILLED = `<svg class="ico-fill" viewBox="0 0 120 64" aria-hidden="true">${[[28,30,.86],[92,30,.86],[60,24,1]].map(([x,y,s])=>`<g transform="translate(${x-32*s} ${y-20*s}) scale(${s})"><path d="M6 64c1.5-15 11-24 26-24s24.5 9 26 24Z" fill="#FEDD00"/><path d="M25 40.6 32 49l7-8.4" fill="none" stroke="#009739" stroke-width="3.4"/><circle cx="32" cy="21" r="12" fill="#7a5137"/><path d="M20.3 19c.6-7 5.6-11 11.7-11s11.1 4 11.7 11c-3-2.6-7-3.6-11.7-3.6S23.3 16.4 20.3 19Z" fill="#2a1a12"/></g>`).join('')}</svg>`;
+
+/* ---------- Estado (localStorage) ---------- */
+const STORE_KEY = `album-penta:${EDITION.year}`;
+let state = {};
+try { state = JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch (e) { state = {}; }
+const save = () => { try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} };
+const entry = id => (state[id] ||= { qty: 0, note: '' });
+
+/* ---------- Figurinhas ---------- */
+const stickers = [
+  { id: `${EDITION.year}-1`, num: 1, squad: true, name: 'Esquadrão', pos: `Seleção de ${EDITION.year}`, img: EDITION.squadImg },
+  ...EDITION.players.map((p, i) => ({ ...p, id: `${EDITION.year}-${i + 2}`, num: i + 2 })),
+];
+const byId = Object.fromEntries(stickers.map(s => [s.id, s]));
+const tiltFor = n => (((n * 37) % 7) - 3) * 0.45; // inclinação leve e fixa
+
+function photoHTML(s) {
+  // Placeholder preenchido fica por baixo; a <img> real cobre quando existir.
+  return `<span class="card-photo">${s.squad ? ICON_SQUAD_FILLED : ICON_PLAYER_FILLED}<img src="${s.img}" alt="" loading="lazy" onerror="this.remove()"></span>`;
+}
+
+function stickerHTML(s, tag = 'button') {
+  const label = `Figurinha ${s.num}: ${s.name}`;
+  return `<${tag} class="sticker${s.squad ? ' sticker--squad' : ''}" data-id="${s.id}" style="--tilt:${tiltFor(s.num)}deg" ${tag === 'button' ? `type="button" aria-label="${label}"` : ''}>
+    <span class="slot">
+      <span class="slot-num">BRA ${s.num}</span>
+      ${s.squad ? ICON_SQUAD_EMPTY : ICON_PLAYER_EMPTY}
+      <span class="slot-name">${s.name}</span>
+      <span class="slot-pos">${s.pos}</span>
+    </span>
+    <span class="card"><span class="card-inner">
+      ${photoHTML(s)}
+      <span class="card-num">BRA ${s.num}</span>
+      <span class="card-flag"></span>
+      ${s.captain ? '<span class="card-cap" title="Capitão">C</span>' : ''}
+      <span class="card-band"><strong>${s.name}</strong><em>${s.pos}</em></span>
+    </span></span>
+    <span class="qty"></span>
+  </${tag}>`;
+}
+
+function infoTileHTML() {
+  const f = EDITION.final;
+  return `<div class="info-tile">
+    <div>
+      <small>A grande final</small>
+      <div class="score">${f.score}</div>
+      <div class="score-teams">Brasil × ${f.opponent}</div>
+      ${f.note ? `<div class="score-note">${f.note}</div>` : ''}
+    </div>
+    <div class="info-meta"><b>Estádio</b>${f.stadium}</div>
+  </div>`;
+}
+
+const squadSlot = document.getElementById('squadSlot');
+const leftGrid = document.getElementById('leftGrid');
+const rightGrid = document.getElementById('rightGrid');
+squadSlot.innerHTML = stickerHTML(stickers[0]);
+leftGrid.innerHTML = stickers.slice(1, 4).map(s => stickerHTML(s)).join('');
+rightGrid.innerHTML = stickers.slice(4).map(s => stickerHTML(s)).join('') + infoTileHTML();
+
+function paint(id, animate = false) {
+  const el = document.querySelector(`.album .sticker[data-id="${id}"]`);
+  const qty = state[id]?.qty || 0;
+  el.classList.toggle('is-filled', qty > 0);
+  el.classList.toggle('has-dupes', qty > 1);
+  el.querySelector('.qty').textContent = `×${qty}`;
+  el.setAttribute('aria-label', `Figurinha ${byId[id].num}: ${byId[id].name}. ${qty ? `Colada${qty > 1 ? `, ${qty} unidades` : ''}` : 'Vazia'}`);
+  if (animate) { el.classList.remove('just-filled'); void el.offsetWidth; el.classList.add('just-filled'); }
+}
+function paintProgress() {
+  const done = stickers.filter(s => (state[s.id]?.qty || 0) > 0).length;
+  document.getElementById('progressCount').textContent = `${done}/${stickers.length}`;
+  document.getElementById('progressBar').style.width = `${(done / stickers.length) * 100}%`;
+}
+stickers.forEach(s => paint(s.id));
+paintProgress();
+
+/* ---------- Modal ---------- */
+const modal = document.getElementById('modal');
+const mNote = document.getElementById('mNote');
+const stepValue = document.getElementById('stepValue');
+const stepMinus = document.getElementById('stepMinus');
+const stepPlus = document.getElementById('stepPlus');
+let current = null, step = 1, lastFocus = null;
+
+function setStep(v) {
+  step = Math.max(1, Math.min(99, v));
+  stepValue.textContent = step;
+  stepMinus.disabled = step <= 1;
+  stepPlus.disabled = step >= 99;
+}
+
+function renderModalPhoto() {
+  const s = byId[current];
+  const photo = document.getElementById('mPhoto');
+  photo.className = 'm-photo' + (s.squad ? ' is-squad' : '');
+  photo.innerHTML = stickerHTML(s, 'div');
+  const el = photo.firstElementChild;
+  const qty = state[current]?.qty || 0;
+  el.classList.toggle('is-filled', qty > 0);
+  el.classList.toggle('has-dupes', qty > 1);
+  el.querySelector('.qty').textContent = `×${qty}`;
+  const have = qty;
+  document.getElementById('mHave').textContent = have;
+  document.getElementById('mHaveLabel').textContent = have === 1 ? 'figurinha' : 'figurinhas';
+}
+
+function openModal(id) {
+  current = id; lastFocus = document.activeElement;
+  const s = byId[id];
+  document.getElementById('mNum').textContent = `BRA ${s.num}`;
+  document.getElementById('mName').textContent = s.name;
+  document.getElementById('mPos').textContent = s.squad ? `Seleção Brasileira · ${EDITION.year}` : `${s.pos}${s.captain ? ' · Capitão' : ''} · ${EDITION.year}`;
+  document.getElementById('mBody').classList.toggle('is-squad', !!s.squad);
+  document.getElementById('btnAddLabel').textContent = s.squad ? 'Adicionar esquadrão' : 'Adicionar jogador';
+  mNote.value = state[id]?.note || '';
+  setStep(1);
+  renderModalPhoto();
+  modal.hidden = false;
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => mNote.focus(), 50);
+}
+function closeModal() {
+  modal.hidden = true; current = null;
+  document.body.style.overflow = '';
+  lastFocus?.focus();
+}
+
+document.querySelector('.album').addEventListener('click', e => {
+  const st = e.target.closest('.sticker');
+  if (st) openModal(st.dataset.id);
+});
+modal.addEventListener('click', e => { if (e.target.closest('[data-close]')) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
+stepMinus.addEventListener('click', () => setStep(step - 1));
+stepPlus.addEventListener('click', () => setStep(step + 1));
+mNote.addEventListener('input', () => { entry(current).note = mNote.value; save(); });
+
+document.getElementById('btnAdd').addEventListener('click', () => {
+  const id = current, e = entry(id), wasEmpty = e.qty === 0;
+  e.qty += step; save();
+  paint(id, wasEmpty); paintProgress();
+  const s = byId[id];
+  toast(wasEmpty
+    ? `${s.name} colado no álbum!${step > 1 ? ` +${step - 1} repetida${step > 2 ? 's' : ''}` : ''}`
+    : `+${step} ${s.name} · ${e.qty - 1} repetida${e.qty - 1 === 1 ? '' : 's'}`);
+  closeModal();
+});
+
+let toastTimer;
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+/* ---------- Abas de página (mobile) ---------- */
+document.querySelectorAll('.page-tabs button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.page-tabs button').forEach(x => x.setAttribute('aria-selected', x === b));
+  document.querySelectorAll('.page').forEach(p => p.classList.toggle('is-active', p.dataset.page === b.dataset.page));
+}));
+</script>
+</body>
+</html>

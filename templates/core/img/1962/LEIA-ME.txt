@@ -1,0 +1,12 @@
+img/1962/01-esquadrao.jpg
+img/1962/02-gilmar.jpg
+img/1962/03-djalma-santos.jpg
+img/1962/04-mauro.jpg
+img/1962/05-zozimo.jpg
+img/1962/06-nilton-santos.jpg
+img/1962/07-zito.jpg
+img/1962/08-didi.jpg
+img/1962/09-garrincha.jpg
+img/1962/10-vava.jpg
+img/1962/11-amarildo.jpg
+img/1962/12-zagallo.jpg
