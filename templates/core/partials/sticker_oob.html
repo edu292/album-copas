@@ -1,0 +1,8 @@
+{% include "core/components/sticker.html" with oob=True %}
+{% include "core/components/progress.html" with oob=True %}
+{% if close_modal %}
+    <dialog class="dialog"
+            id="modal-shell"
+            hx-swap-oob="true"
+            onclick="if (event.target === this) this.close();"></dialog>
+{% endif %}

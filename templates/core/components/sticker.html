@@ -1,0 +1,62 @@
+<div id="sticker-{{ sticker.id }}"
+     class="sticker{% if sticker.is_team %} sticker--squad{% endif %}"
+     {% if oob %}hx-swap-oob="true"{% endif %}>
+    {% if sticker.quantity > 0 %}
+        <button type="button"
+                class="sticker__trigger"
+                hx-get="{% url 'core:sticker_modal' sticker.id %}"
+                hx-target="#modal-shell"
+                hx-on::after-request="document.getElementById('modal-shell').showModal()"
+                aria-label="Ver detalhes de {{ sticker.name }} (BRA {{ sticker.slot }})">
+            <span class="sticker__card" style="--tilt: {{ sticker.tilt }}deg">
+                <span class="sticker__inner">
+                    <span class="sticker__photo">
+                        {% if sticker.image %}
+                            <img src="{{ sticker.image.url }}" alt="{{ sticker.name }}" loading="lazy" />
+                        {% endif %}
+                    </span>
+                    <span class="sticker__badge-num">BRA {{ sticker.slot }}</span>
+                    <span class="sticker__flag" aria-hidden="true"></span>
+                    {% if sticker.is_captain %}<span class="sticker__cap" title="Capitão">C</span>{% endif %}
+                    <span class="sticker__band">
+                        <strong class="sticker__band-name">{{ sticker.name }}</strong>
+                        <em class="sticker__band-pos">{{ sticker.subtitle }}</em>
+                    </span>
+                </span>
+            </span>
+        </button>
+        {% if user.is_authenticated %}
+            <div class="sticker__controls"
+                 role="group"
+                 aria-label="Quantidade de {{ sticker.name }}">
+                <button type="button"
+                        class="sticker__step-btn sticker__step-btn--remove"
+                        hx-post="{% url 'core:remove_sticker' sticker.id %}"
+                        hx-swap="none"
+                        aria-label="Remover uma unidade de {{ sticker.name }}"
+                        title="Remover (-1)">−</button>
+                <span class="sticker__qty" aria-label="{{ sticker.quantity }} unidades">×{{ sticker.quantity }}</span>
+                <button type="button"
+                        class="sticker__step-btn"
+                        hx-post="{% url 'core:add_sticker' sticker.id %}"
+                        hx-swap="none"
+                        aria-label="Adicionar repetida de {{ sticker.name }}"
+                        title="Adicionar repetida (+1)">+</button>
+            </div>
+        {% endif %}
+    {% else %}
+        <button type="button"
+                class="sticker__trigger"
+                {% if user.is_authenticated %} hx-post="{% url 'core:add_sticker' sticker.id %}" hx-swap="none" aria-label="Colar figurinha {{ sticker.slot }}: {{ sticker.name }}" {% else %} hx-get="{% url 'core:sticker_modal' sticker.id %}" hx-target="#modal-shell" hx-on::after-request="document.getElementById('modal-shell').showModal()" aria-label="Ver figurinha {{ sticker.slot }}: {{ sticker.name }}" {% endif %}>
+            <span class="sticker__slot">
+                <span class="sticker__num">BRA {{ sticker.slot }}</span>
+                <svg class="sticker__ico" viewBox="0 0 64 64" aria-hidden="true">
+                    <circle cx="32" cy="21" r="11" fill="none" stroke="currentColor" stroke-width="2.6" />
+                    <path d="M9 60c1.5-13 10.5-21 23-21s21.5 8 23 21" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" />
+                </svg>
+                <span class="sticker__name">{{ sticker.name }}</span>
+                <span class="sticker__pos">{{ sticker.subtitle }}</span>
+            </span>
+        </button>
+    {% endif %}
+</div>

@@ -1,0 +1,16 @@
+<div
+  class="progress"
+  id="album-progress"
+  aria-live="polite"
+  {% if oob %} hx-swap-oob="true" {% endif %}
+>
+  <span class="progress__label">Coladas</span>
+  <span class="progress__count">{{ owned_count }}/{{ total_count }}</span>
+  <progress
+    class="progress__meter"
+    value="{{ owned_count }}"
+    max="{{ total_count }}"
+  >
+    {{ owned_count }} de {{ total_count }}
+  </progress>
+</div>

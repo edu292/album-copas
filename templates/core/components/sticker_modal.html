@@ -1,0 +1,64 @@
+<header class="dialog__head">
+    <span class="dialog__num">BRA {{ sticker.slot }}</span>
+    <div>
+        <h2 class="dialog__title">{{ sticker.name }}</h2>
+        <p class="dialog__sub">
+            {{ sticker.subtitle }}{% if sticker.is_captain %} · Capitão{% endif %} ·
+            {{ sticker.team.year }}
+        </p>
+    </div>
+    <button type="button"
+            class="dialog__close"
+            onclick="this.closest('dialog').close()"
+            aria-label="Fechar">×</button>
+</header>
+<div class="dialog__body">
+    <figure class="dialog__photo{% if sticker.is_team %} dialog__photo--squad{% endif %}">
+        <div class="sticker{% if sticker.is_team %} sticker--squad{% endif %}">
+            <div class="sticker__card" style="--tilt: 0deg">
+                <span class="sticker__inner">
+                    <span class="sticker__photo">
+                        {% if sticker.image %}
+                            <img src="{{ sticker.image.url }}" alt="{{ sticker.name }}" loading="lazy" />
+                        {% endif %}
+                    </span>
+                    <span class="sticker__badge-num">BRA {{ sticker.slot }}</span>
+                    <span class="sticker__flag" aria-hidden="true"></span>
+                    {% if sticker.is_captain %}<span class="sticker__cap" title="Capitão">C</span>{% endif %}
+                    <span class="sticker__band">
+                        <strong class="sticker__band-name">{{ sticker.name }}</strong>
+                        <em class="sticker__band-pos">{{ sticker.subtitle }}</em>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </figure>
+    <div class="dialog__details">
+        <span class="dialog__label">Biografia &amp; Estatísticas</span>
+        <p class="dialog__bio">{{ sticker.details|default:"Sem detalhes registrados para esta figurinha." }}</p>
+    </div>
+</div>
+<footer class="dialog__foot">
+    {% if user.is_authenticated %}
+        <p class="dialog__have">Você tem <b>{{ quantity }}</b> unidade(s)</p>
+        <form hx-post="{% url 'core:update_sticker' sticker.id %}"
+              hx-swap="none"
+              style="display: flex;
+                     gap: 0.5rem;
+                     align-items: center">
+            <label for="qty-{{ sticker.id }}" class="dialog__label">Qtd:</label>
+            <input id="qty-{{ sticker.id }}"
+                   type="number"
+                   name="quantity"
+                   min="0"
+                   max="99"
+                   value="{{ quantity }}"
+                   class="field dialog__qty-input" />
+            <button type="submit" class="pill pill--accent">Salvar</button>
+        </form>
+    {% else %}
+        <p class="dialog__have">Faça login para colecionar.</p>
+        <a href="{% url 'login' %}?next={% url 'core:team_detail' sticker.team.year %}"
+           class="pill pill--accent">Entrar</a>
+    {% endif %}
+</footer>

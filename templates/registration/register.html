@@ -1,0 +1,43 @@
+{% extends "core/base.html" %}
+{% block title %}Cadastro · Álbum do Penta{% endblock %}
+{% block content %}
+    <main class="stage">
+        <section class="auth-card">
+            <header class="auth-card__head">
+                <p class="auth-card__kicker">Novo Colecionador</p>
+                <h1 class="auth-card__title">Criar Conta</h1>
+            </header>
+            <form method="post" class="auth-card__form" novalidate>
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                    <ul class="form-errors" role="alert">
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                {% for field in form %}
+                    <div class="form-field{% if field.errors %} form-field--error{% endif %}">
+                        <label class="form-field__label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.errors %}
+                            <ul class="form-errors" role="alert">
+                                {% for error in field.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        {% if field.help_text %}
+                            <div class="form-field__help">{{ field.help_text|safe }}</div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <button type="submit" class="pill pill--accent auth-card__submit">Criar Conta</button>
+            </form>
+            <p class="auth-card__foot">
+                Já possui conta?
+                <a href="{% url 'login' %}" class="auth-card__link">Entrar</a>
+            </p>
+        </section>
+    </main>
+{% endblock %}

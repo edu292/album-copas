@@ -1,0 +1,56 @@
+<header class="dialog__head">
+  <h2 class="dialog__title">
+    Listas para WhatsApp{% if year %} · {{ year }}{% endif %}
+  </h2>
+  <button
+    type="button"
+    class="dialog__close"
+    onclick="this.closest('dialog').close()"
+    aria-label="Fechar"
+  >
+    ×
+  </button>
+</header>
+
+<div class="dialog__body dialog__body--stack">
+  <div class="segmented" role="tablist" aria-label="Tipo de lista">
+    <button
+      type="button"
+      role="tab"
+      class="pill{% if list_type != 'dupes' %} pill--active{% endif %}"
+      aria-selected="{% if list_type != 'dupes' %}true{% else %}false{% endif %}"
+      hx-get="{% url 'core:whatsapp_modal' %}?type=missing{% if year %}&year={{ year }}{% endif %}"
+      hx-target="#modal-shell"
+    >
+      Faltando
+    </button>
+    <button
+      type="button"
+      role="tab"
+      class="pill{% if list_type == 'dupes' %} pill--active{% endif %}"
+      aria-selected="{% if list_type == 'dupes' %}true{% else %}false{% endif %}"
+      hx-get="{% url 'core:whatsapp_modal' %}?type=dupes{% if year %}&year={{ year }}{% endif %}"
+      hx-target="#modal-shell"
+    >
+      Repetidas
+    </button>
+  </div>
+
+  <textarea class="whatsapp-box" readonly id="wa-export-text">
+{{ text }}</textarea>
+</div>
+
+<footer class="dialog__foot">
+  <button
+    type="button"
+    class="pill pill--accent"
+    onclick="
+      navigator.clipboard.writeText(
+        document.getElementById('wa-export-text').value,
+      );
+      this.textContent = 'Copiado!';
+    "
+  >
+    Copiar para WhatsApp
+  </button>
+</footer>

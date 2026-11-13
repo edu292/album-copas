@@ -1,0 +1,45 @@
+{% extends "core/base.html" %}
+{% block title %}Álbum do Penta · Brasil {{ team.year }}{% endblock %}
+{% block content %}
+    <main class="stage">
+        <form method="get"
+              action="{% url 'core:team_detail' team.year %}"
+              hx-get="{% url 'core:sticker_spread' team.year %}"
+              hx-target="#album-spread"
+              hx-trigger="submit, change, keyup changed delay:250ms from:input[name=q]"
+              hx-push-url="{% url 'core:team_detail' team.year %}"
+              class="toolbar"
+              aria-label="Filtros e ordenação">
+            <div class="toolbar__group">
+                <input type="search"
+                       name="q"
+                       value="{{ request.GET.q }}"
+                       placeholder="Buscar jogador..."
+                       aria-label="Buscar jogador"
+                       class="field field--search" />
+                <select name="status" aria-label="Filtrar por posse" class="field">
+                    <option value="">Todas as figurinhas</option>
+                    <option value="owned"
+                            {% if request.GET.status == 'owned' %}selected{% endif %}>Coladas</option>
+                    <option value="missing"
+                            {% if request.GET.status == 'missing' %}selected{% endif %}>Faltando</option>
+                    <option value="dupes"
+                            {% if request.GET.status == 'dupes' %}selected{% endif %}>Repetidas</option>
+                </select>
+                <select name="position" aria-label="Filtrar por posição" class="field">
+                    <option value="">Todas as posições</option>
+                    {% for code, label in positions %}
+                        <option value="{{ code }}"
+                                {% if request.GET.position == code %}selected{% endif %}>{{ label }}</option>
+                    {% endfor %}
+                </select>
+                <select name="sort" aria-label="Ordenar jogadores" class="field">
+                    <option value="slot" {% if request.GET.sort != 'alpha' %}selected{% endif %}>Ordem do álbum</option>
+                    <option value="alpha"
+                            {% if request.GET.sort == 'alpha' %}selected{% endif %}>Ordem alfabética (A–Z)</option>
+                </select>
+            </div>
+        </form>
+        <div id="album-spread">{% include "core/partials/spread.html" %}</div>
+    </main>
+{% endblock %}
