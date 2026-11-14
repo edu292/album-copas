@@ -605,7 +605,6 @@ body {
   text-transform: uppercase;
 }
 
-/* Filled Card */
 .sticker__card {
   position: absolute;
   inset: 0;
@@ -614,7 +613,6 @@ body {
   background: var(--color-white);
   padding: 0.3125rem;
   box-shadow: var(--shadow-card);
-  transform: rotate(var(--tilt, 0deg));
   animation: sticker-pop 0.45s var(--ease-spring);
 }
 

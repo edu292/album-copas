@@ -27,10 +27,6 @@ def _annotated_stickers(user, team, params=None):
     else:
         qs = qs.annotate(quantity=models.Value(0, output_field=models.IntegerField()))
 
-    qs = qs.annotate(
-        tilt=(((models.F('slot') * 37) % 7) - 3) * models.Value(0.45),
-    )
-
     if params:
         if q := params.get('q', '').strip():
             qs = qs.filter(name__icontains=q)
@@ -175,7 +171,6 @@ def add_sticker(request, pk):
     UserSticker.objects.filter(pk=obj.pk).update(quantity=models.F('quantity') + 1)
     obj.refresh_from_db(fields=['quantity'])
     sticker.quantity = obj.quantity
-    sticker.tilt = round((((sticker.slot * 37) % 7) - 3) * 0.45, 2)
 
     return render(
         request,
@@ -192,7 +187,6 @@ def remove_sticker(request, pk):
     UserSticker.objects.filter(pk=obj.pk).update(quantity=models.F('quantity') - 1)
     obj.refresh_from_db(fields=['quantity'])
     sticker.quantity = obj.quantity
-    sticker.tilt = round((((sticker.slot * 37) % 7) - 3) * 0.45, 2)
 
     return render(
         request,
@@ -218,7 +212,6 @@ def update_sticker(request, pk):
         )
 
     sticker.quantity = qty
-    sticker.tilt = round((((sticker.slot * 37) % 7) - 3) * 0.45, 2)
     return render(
         request,
         'core/partials/sticker_oob.html',

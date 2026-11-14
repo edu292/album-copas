@@ -8,7 +8,7 @@
                 hx-target="#modal-shell"
                 hx-on::after-request="document.getElementById('modal-shell').showModal()"
                 aria-label="Ver detalhes de {{ sticker.name }} (BRA {{ sticker.slot }})">
-            <span class="sticker__card" style="--tilt: {{ sticker.tilt }}deg">
+            <span class="sticker__card">
                 <span class="sticker__inner">
                     <span class="sticker__photo">
                         {% if sticker.image %}
