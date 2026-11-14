@@ -15,7 +15,13 @@ dependencies = [
 [tool.ruff.format]
 quote-style = "single"
 
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "album_copas.settings"
+
 [dependency-groups]
 dev = [
     "django-types>=0.24.0",
+    "pytest>=9.2.0",
+    "pytest-bdd>=9.0.1",
+    "pytest-django>=4.14.0",
 ]
