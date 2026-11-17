@@ -33,10 +33,10 @@
                                 {% if request.GET.position == code %}selected{% endif %}>{{ label }}</option>
                     {% endfor %}
                 </select>
+                <!-- João Pedro Magri Pozzan-->
                 <select name="sort" aria-label="Ordenar jogadores" class="field">
                     <option value="slot" {% if request.GET.sort != 'alpha' %}selected{% endif %}>Ordem do álbum</option>
-                    <option value="alpha"
-                            {% if request.GET.sort == 'alpha' %}selected{% endif %}>Ordem alfabética (A–Z)</option>
+                    <option value="alpha"{% if request.GET.sort == 'alpha' %}selected{% endif %}>Ordem alfabética (A–Z)</option>
                 </select>
             </div>
         </form>

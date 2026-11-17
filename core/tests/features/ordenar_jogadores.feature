@@ -1,6 +1,6 @@
 # language: pt
 Funcionalidade: Ordenar a lista de jogadores em ordem alfabética
-
+//João Pedro Magri Pozzan
   Cenário: Ordenar jogadores de A a Z
     Dado que existe a seleção de 2002 com figurinhas cadastradas
     Quando eu acesso a edição de 2002 ordenada por "alpha"

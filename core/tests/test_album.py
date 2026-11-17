@@ -12,7 +12,7 @@ scenarios('features')
 def _get_sticker(name: str) -> Sticker:
     return Sticker.objects.get(name=name)
 
-
+# João Pedro Magri Pozzan
 @given('que existe a seleção de 2002 com figurinhas cadastradas')
 def setup_team_and_stickers(team_2002, sample_stickers):
     return sample_stickers
@@ -30,7 +30,7 @@ def create_named_collector(db, username, password):
     user.save()
     return user
 
-
+#João Pedro Magri Pozzan
 @given('que estou autenticado como colecionador')
 def login_as_collector(client, collector_user):
     client.force_login(collector_user)
@@ -50,7 +50,7 @@ def set_single_sticker_qty(collector_user, qty, name):
         user=collector_user, sticker=sticker, defaults={'quantity': qty}
     )
 
-
+#João Pedro M. Pozzan
 @given(
     parsers.parse(
         'que possuo {q1:d} unidades de "{n1}", {q2:d} unidade de "{n2}" e {q3:d} de "{n3}"'
@@ -129,7 +129,7 @@ def submit_named_login(client, ctx, username, password):
 def submit_logout(client, ctx):
     ctx['response'] = client.post(reverse('logout'))
 
-
+#João Pedro Magri Pozzan
 @when(parsers.parse('eu acesso a página da edição de {year:d}'))
 def visit_team_detail(client, ctx, year):
     ctx['response'] = client.get(reverse('core:team_detail', args=[year]))
@@ -141,6 +141,7 @@ def open_sticker_modal(client, ctx, name):
     ctx['response'] = client.get(reverse('core:sticker_modal', args=[sticker.pk]))
 
 
+#João Pedro Magri Pozzan
 @when(
     parsers.parse(
         'eu solicito a lista de WhatsApp do tipo "{list_type}" para o ano {year:d}'
@@ -151,21 +152,21 @@ def request_whatsapp_list(client, ctx, list_type, year):
         reverse('core:whatsapp_modal'), {'type': list_type, 'year': year}
     )
 
-
+#João Pedro Magri Pozzan
 @then(parsers.parse('o texto gerado deve listar a figurinha faltando "{name}"'))
 def assert_whatsapp_missing_sticker(ctx, name):
     sticker = _get_sticker(name)
     expected_line = f'• BRA {sticker.slot:02d} - {sticker.name}'
     assert expected_line in ctx['response'].content.decode()
 
-
+#João Pedro Magri Pozzan
 @then(parsers.parse('o texto gerado deve listar "{name}" com {dupes:d} repetidas'))
 def assert_whatsapp_dupe_sticker(ctx, name, dupes):
     sticker = _get_sticker(name)
     expected_line = f'• BRA {sticker.slot:02d} - {sticker.name} (x{dupes} repetida)'
     assert expected_line in ctx['response'].content.decode()
 
-
+#João Pedro Magri Pozzan
 @when(parsers.parse('eu acesso a edição de {year:d} ordenada por "{sort}"'))
 def visit_sorted_team(client, ctx, year, sort):
     ctx['response'] = client.get(
@@ -197,7 +198,7 @@ def check_redirect_to_login(ctx):
 
 @then(parsers.parse('a página deve exibir "{text}"'))
 @then(parsers.parse('o modal deve exibir "{text}"'))
-@then(parsers.parse('o texto gerado deve conter "{text}"'))
+@then(parsers.parse('o texto gerado deve conter "{text}"')) #João Pedro Magri Pozzan
 def assert_text_present(ctx, text):
     assert ctx['response'].status_code == 200
     assert text in ctx['response'].content.decode()
@@ -210,7 +211,7 @@ def assert_sticker_details_present(ctx, name):
 
 
 @then(parsers.parse('a página não deve exibir "{text}"'))
-@then(parsers.parse('o texto gerado não deve conter "{text}"'))
+@then(parsers.parse('o texto gerado não deve conter "{text}"')) #João Pedro Magri Pozzan
 def assert_text_absent(ctx, text):
     assert ctx['response'].status_code == 200
     assert text not in ctx['response'].content.decode()
@@ -263,7 +264,7 @@ def assert_progress_value(ctx, team_2002, owned):
     total = team_2002.stickers.count()
     assert f'{owned}/{total}' in ctx['response'].content.decode()
 
-
+#João Pedro Magri Pozzan
 @then(parsers.parse('"{first}" deve aparecer antes de "{second}"'))
 def assert_order(ctx, first, second):
     html = ctx['response'].content.decode()

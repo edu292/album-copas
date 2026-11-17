@@ -1,6 +1,6 @@
 # language: pt
 Funcionalidade: Gerar uma lista de texto para WhatsApp
-
+//Gerar lista para whatsapp
   Contexto:
     Dado que existe a seleção de 2002 com figurinhas cadastradas
     E que estou autenticado como colecionador

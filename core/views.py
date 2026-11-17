@@ -39,7 +39,7 @@ def _annotated_stickers(user, team, params=None):
             qs = qs.filter(quantity=0)
         elif status == 'dupes':
             qs = qs.filter(quantity__gt=1)
-        if params.get('sort') == 'alpha':
+        if params.get('sort') == 'alpha': #João Pedro Magri Pozzan
             qs = qs.order_by('name')
 
     return qs
@@ -109,7 +109,7 @@ def sticker_modal(request, pk):
         {'sticker': sticker, 'quantity': qty},
     )
 
-
+#João Pedro Magri Pozzan
 @login_required
 def whatsapp_modal(request):
     list_type = request.GET.get('type', 'missing')
